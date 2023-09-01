@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+  <!-- <script src="js/index.js"></script> -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
+    integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS"
+    crossorigin="anonymous"></script>
+  <script>
+
+    $(document).ready(function () {
+      $("#profile").click(function () {
+        location.href = "pro-file-d.html";
+      });
+
+
+      $("#AvailM").click(function () {
+       
+        location.href = "avail-med-d.html";
+      })
+$("#MedManager").click(function(){
+  location.href="med-manager.html";
+})
+
+     $("#Supdate").click(function()
+     {
+      
+
+   var emailku = $("#Semail").val();
+  
+   var oldku = $("#Sopwd").val();
+   var newku = $("#Snpwd").val();
+   var confku=$("#Sconf").val();
+   
+      var obj = {
+        type:"get",
+        url:"/update-pwd",
+        data: {
+            kuchemail:emailku,
+            kuchold:oldku,
+            kuchnew: newku,
+            kuchconf:confku,
+            
+        }
+      
+    
+        
+
+
+      }
+
+        $.ajax(obj).done(function (resp) {
+
+          alert(resp);
+        }).fail(function (err) {
+          alert(err);
+        })
+      })
+
+    } )//fixed     
+  
+                       
+                                            //same seq. as in table
+
+
+    
+
+
+
+
+
+///////////////////============================================
+
+
+
+
+
+
+
+
+
+
+  </script>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" id="">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Pricing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled">Disabled</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </nav>
+
+<div class="container" style="display:flex; flex-direction:row ;gap: 20px;" >
+  <div class="card" style="width: 18rem;">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title"></h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="#" class="btn btn-primary" id="profile"  >Profile</a>
+    </div>
+  </div>
+  <div class="card" style="width: 18rem;">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="#" class="btn btn-primary" id="AvailM">Avail Med</a>
+    </div>
+  </div>
+  <div class="card" style="width: 18rem;">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="#" class="btn btn-primary" id="MedManager">Med Manager</a>
+    </div>
+  </div>
+  <div class="card" style="width: 18rem;">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    
+  
+  
+     
+    <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  Settings
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div><center>Change Password</center></div>      
+        <div>Emailid</div>         
+            <input type="text" id="Semail" name="Semail">      
+         <div>Old Password</div>     
+          <input type="text" id="Sopwd" name="Sopwd">     
+          <div>New Password</div>       
+          <input type="text" id="Snpwd">    
+         <div >Confirm Password</div>   
+        <input type="text" id="Sconf">         
+            <div class="modal-footer">  </div>       
+     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="Supdate">Update</button>           
+     
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      
+      </div>
+    </div>
+  </div>
+</div>
+       
+          <!-- <div class="modal fade " id="signModal1" tabindex="-1" aria-labelledby="SignupPage" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content ">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="SignupPage">Fill your details below</h1>
+                  <button type="button" data-bs-dismiss="modal" class="btn-close" data-bs-dimiss="modal"
+                    aria-label="close"></button>
+                </div>
+
+                <div class="modal-body">
+                  <div class="md-form mb-3">
+
+                    <label data-error="wrong" data-success="right" for="defaultForm-email"> Email
+                      address</label>
+                    <input type="email" id="Formemail" class="form-control validate" value="" required
+                      style="height: 50px;">
+                    <div id="errEmail" class="mt-2"></div>
+                  </div>
+
+                  <div class="md-form mb-3">
+                     <i class="fas fa-lock prefix grey-text"></i> -->
+                   
+</div>
+  
+
+</body>
+
+</html>

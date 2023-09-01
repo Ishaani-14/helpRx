@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap demo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <link rel="stylesheet" href="style/signup.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+  <script>
+
+    function doPrev(refFile, prevImg) {
+      const [file] = refFile.files;
+      if (file) {
+        prevImg.src = URL.createObjectURL(file)
+      }
+    }
+
+    //======================================================================================================
+    $(document).ready(function () {
+      
+      $("#update-id").fadeOut(1000);
+
+      $("#btnsearch").click(function () {
+     
+       
+        var emailKu = $("#txtEmail").val();
+
+        var obj = {
+          type: "get",
+          url: "/json-rec-donor",
+          data: {
+            kuchEmail: emailKu,
+          }
+        }
+
+        $.ajax(obj).done(function (respJSONKuch) {
+          
+         alert(JSON.stringify(respJSONKuch));
+         
+         $("#update-id").fadeIn(1000);
+
+          if (respJSONKuch[0].namee!=[]) 
+          {
+          alert(JSON.stringify(respJSONKuch));
+
+            $("#save-id").fadeOut(1000);
+           /* $("#txtnamee").val(respJSONKuch[0].namee);
+            $("#txtadd").val(respJSONKuch[0].address);
+            $("#txtcity").val(respJSONKuch[0].city);
+            $("#txtid").val(respJSONKuch[0].proofid);
+            $("#txtpic").val(respJSONKuch[0].picname);
+            $("#txtFrom").val(respJSONKuch[0].froma);
+            $("#txtTo").val(respJSONKuch[0].toa);
+            */
+          }
+        }).fail(function (errKuch) {
+          alert("err");
+
+        })
+
+      });
+      //=================
+
+
+
+
+
+
+
+      // $.ajax(obj).done(function(respJSONKuch)
+      // {
+      //     alert(JSON.stringify(respJSONKuch));//:-)
+      //     //$("#res").html(respKuch);
+      //     $("#txtPwd").val(respJSONKuch[0].password)
+      //     $("#dob").val(respJSONKuch[0].dob);
+      //     $("#imgPrev").prop("src","uploads/"+respJSONKuch[0].picname);
+
+      //     $("#hdn").val(respJSONKuch[0].picname);
+
+      // }).fail(function(errKuch){
+      //      alert(errKuch)
+      //     //$("#res").html(respKuch);
+      // })
+
+
+
+
+    });
+
+
+
+  </script>
+  <style>
+
+
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" id="">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Pricing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled">Disabled</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </nav>
+
+  <div class="container">
+    <p>
+      <center>
+      </center>
+    </p>
+    <div class="row">
+      <div class="col-md-12">
+        <center><img id="wait" src="pics/icons8-loading-infinity.gif" alt=""></center>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <form method="post" enctype="multipart/form-data">
+          <input type="hidden" id="hdn" name="hdn">
+          <p>
+            <center>
+              <h3>Signup SECURE Form</h3>
+            </center>
+          </p>
+          <div class="mb-3">
+            <label for="formGroupExampleInput" class="form-label">Email ID</label>
+            <span id="res">*</span>
+            <input type="text" class="form-control" id="txtEmail" name="txtEmail"
+              placeholder="Example input placeholder">
+
+            <input type="button" class="btn btn-primary mt-2" id="btnsearch" value="Search">
+          </div>
+
+          <div class="mb-3">
+            <label for="formGroupExampleInput2" class="form-label">Name</label>
+            <input type="text" class="form-control" value="" id="txtname" name="txtname"
+              placeholder="Another input placeholder">
+          </div>
+          <div class="mb-3">
+            <label for="formGroupExampleInput2" class="form-label">Mobile</label>
+            <input type="text" class="form-control" value="" id="txtmobile" name="txtmobile"
+              placeholder="Another input placeholder">
+          </div>
+          <div class="mb-3">
+            <label for="formGroupExampleInput2" class="form-label">Address</label>
+            <input type="text" class="form-control" value="" id="txtadd" name="txtadd"
+              placeholder="Another input placeholder">
+          </div>
+          <div class="mb-3">
+            <label for="formGroupExampleInput2" class="form-label">City</label>
+            <input type="text" class="form-control" value="" id="txtcity" name="txtcity"
+              placeholder="Another input placeholder">
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <select class="form-select" name="txtid" id="txtid">
+                <option selected>Select Id</option>
+                <option value="Aadhar Card">Aadhar Card</option>
+                <option value="Drivers License">Drivers License</option>
+                <option value="Pan Card">Pan Card</option>
+              </select>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <input type="file" onchange="doPrev(this,imgPrev)" name="txtpic" id="txtpic" accept="image/*">
+
+              </div>
+              <div class="col-md-6">
+                <img src="" id="imgPrev" alt="" width="100" height="100">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                Availability Hours
+                <br>From<input type="time" name="txtFrom" id="txtFrom">
+                <select name="" id="">
+                  <option value="">AM</option>
+                  <option value="">PM</option>
+                </select>
+                &nbsp;&nbsp;&nbsp;To
+                <input type="time" name="txtTo" id="txTo">
+
+                <select name="" id="">
+                  <option value="">AM</option>
+                  <option value="">PM</option>
+                </select>
+
+
+              </div>
+            </div>
+
+            <div class="col-12 mt-1">
+              <center>
+                <button type="submit" class="btn btn-primary" id="save-id" formaction="/profile-get">Submit</button>
+
+                <button type="submit" class="btn btn-primary" id="update-id" formaction="/update-process">Update</button>
+              </center>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"></script>
+   
+</body>
+
+</html>

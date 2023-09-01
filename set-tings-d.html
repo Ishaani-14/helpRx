@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+    <!-- <script src="js/index.js"></script> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+</head>
+<body>
+    <form>
+        <div class="modal fade " id="signupModal" tabindex="-1" aria-labelledby="SignupPage" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content ">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="SignupPage">Fill your details below</h1>
+                        <button type="button" data-bs-dismiss="modal" class="btn-close" data-bs-dimiss="modal"
+                            aria-label="close"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="md-form mb-3">
+
+                            <label data-error="wrong" data-success="right" for="defaultForm-email"> Email 
+                                address</label>
+                            <input type="email" id="Formemail" class="form-control validate" value="" required
+                                style="height: 50px;">
+                            <div id="errEmail" class="mt-2"></div>
+                        </div>
+
+                        <div class="md-form mb-3">
+                            <!-- <i class="fas fa-lock prefix grey-text"></i> -->
+                            <label data-error="wrong" data-success="right" for="Form-pass"> Password </label>
+                            <div>
+                                <!-- <i class="fa bi-eye eye" aria-hidden="true"></i> -->
+                                <input type="password" id="Formpass" class=" form-control validate" value="" required
+                                    style="height: 50px;">
+                            </div>
+
+                            <div id="errPass" class="mt-2"></div>
+                        </div>
+
+
+                        <div class="md-form mb-3">
+                            <label data-error="wrong" data-success="right" for="Form-pass">Type</label>
+                            <select id="seltype" class="form-control" required style="height: 50px;">
+                                <option selected value="">Select</option>
+                                <option value="Donor">Donor</option>
+                                <option value="Receiver">Needy</option>
+                            </select>
+                        </div>
+
+                    </div>
+                    <div style="padding:10px 0px 10px">
+                        <center>
+                            <form class="d-flex" role="search">
+                                <input class="btn btn-success" type="button" id="btnSignup" value="signup">
+                            </form>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

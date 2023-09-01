@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="style/signup.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+$(document).ready(function () 
+{
+   
+$("#AvailMM").click(function () {
+   alert();
+   var emailku = $("#txtemail").val();
+    
+    var nameku = $("#txtname").val();
+    //alert(nameku);
+    var expku = $("#txtexp").val();
+    //alert(expku);
+    var packku=$("#txtpack").val();
+    //alert(packku);
+    var qtyku=$("#txtqty").val();
+    //alert(qtyku);
+
+    var obj = {
+        type:"get",
+        url:"/chk-med",
+        data: {
+            kuchemail:emailku,
+            kuchname:nameku,
+            kuchexp: expku,
+            kuchpack:packku,
+            kuchqty:qtyku,
+        }
+      
+
+
+    } //fixed     
+    $.ajax(obj).done(function (respkuch) 
+    {
+      alert(respkuch);
+    }).fail(function (errkuch) {
+        alert("fail");
+    })                      //same seq. as in table
+
+
+});
+       });
+    </script>
+</head>
+<body>
+    <center>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">Navbar</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#" id="" >Profile</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Pricing</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link disabled">Disabled</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+    
+          </nav>
+
+        <center>
+         <div class="container">
+          <div class="row">
+          <div class="col-md-6">
+            <label for="formGroupExampleInput" class="form-label">Email ID</label>
+            <span id="res">*</span>
+            <input type="text" class="form-control"  id="txtemail" name="txtemail" >
+           </div>
+           </div>
+
+           <div class="row">
+          <div class="col-md-3">
+            <label for="formGroupExampleInput2" class="form-label">MED Name</label>
+            <input type="text" class="form-control" value="" id="txtname" name="txtname" >
+          </div>
+        
+          <div class="col-md-3">
+            <label for="formGroupExampleInput2" class="form-label">Exp Date</label>
+            <input type="date" class="form-control" value="" id="txtexp" name="txtexp" >
+          </div>
+          </div>
+        
+         <div class="row">
+            <div class="col-md-3">
+              <label for="formGroupExampleInput2" class="form-label">Packing</label>
+              <select class="form-select" name="txtpack" id="txtpack">
+                <option selected>Select</option>
+                <option value="Bottle">Bottle</option>
+                <option value="Capsules">Capsules</option>
+                <option value="Sache">Sache</option>
+              </select>
+              </div>
+     
+
+          <div class="col-md-3">
+            <label for="formGroupExampleInput2" class="form-label">Quantity</label>
+            <input type="text" class="form-control" value="" id="txtqty" name="txtqty">
+          </div>
+          </div>
+          </div>
+        </center>
+        
+        <div></div>
+        <div></div>
+        <div></div>
+         
+      <center>
+
+          <button type="button" class="btn btn-primary" id="AvailMM">Avail Medicine</button>
+      </center>
+</body>
+</html>
